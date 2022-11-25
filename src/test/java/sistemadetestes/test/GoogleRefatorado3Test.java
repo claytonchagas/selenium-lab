@@ -3,7 +3,9 @@ package sistemadetestes.test;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 //import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 //import org.openqa.selenium.WebElement;
@@ -15,6 +17,7 @@ import sistemadetestes.pageObject.GooglePO;
 //document.getElementById('result-stats')
 
 //Classe GoogleTest refatorada para usar BaseTest e BasePO
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GoogleRefatorado3Test extends BaseTest{
 	
 	private static GooglePO googlePage;

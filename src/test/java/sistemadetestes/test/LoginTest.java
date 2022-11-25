@@ -3,10 +3,13 @@ package sistemadetestes.test;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import sistemadetestes.pageObject.LoginPO;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LoginTest extends BaseTest{
 	
 	private static LoginPO loginPage;
@@ -24,6 +27,7 @@ public class LoginTest extends BaseTest{
 		
 		//loginPage.buttonEntrar.click();
 		loginPage.executarAcaoDeLogar("", "");
+		
 		String mensagem = loginPage.obterMensagem();
 		
 		assertEquals(mensagem, "Informe usuário e senha, os campos não podem ser brancos.");
@@ -36,6 +40,7 @@ public class LoginTest extends BaseTest{
 		loginPage.inputSenha.sendKeys("");
 		
 		loginPage.buttonEntrar.click();
+		
 		String mensagem = loginPage.obterMensagem();
 		
 		assertEquals(mensagem, "Informe usuário e senha, os campos não podem ser brancos.");
@@ -48,8 +53,16 @@ public class LoginTest extends BaseTest{
 		loginPage.escrever(loginPage.inputSenha, "teste");
 		
 		loginPage.buttonEntrar.click();
+		
 		String mensagem = loginPage.obterMensagem();
 		
 		assertEquals(mensagem, "Informe usuário e senha, os campos não podem ser brancos.");
+	}
+	
+	@Test
+	public void TC007_deveLogarNoSistemaComEmailESenhaCorretos() {
+		loginPage.executarAcaoDeLogar("admin@admin.com", "admin@123");
+		
+		assertEquals(loginPage.obterTituloDaPagina(), "Controle de Produtos");
 	}
 }

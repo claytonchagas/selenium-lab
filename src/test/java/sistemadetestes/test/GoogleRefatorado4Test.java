@@ -3,7 +3,9 @@ package sistemadetestes.test;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 //import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 //import org.openqa.selenium.WebElement;
@@ -19,6 +21,7 @@ import sistemadetestes.pageObject.GooglePO;
 //Refatorando o nome dos casos de teste, padrão PRO
 //DICA LEGAL: quando acabar tudo, no terminal ou cmd, na raiz do projeto
 //no mesmo nível de src e pom.xml, execute o comando "maven test"
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GoogleRefatorado4Test extends BaseTest{
 	
 	private static GooglePO googlePage;
